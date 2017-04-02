@@ -7,6 +7,8 @@ const Client = require('node-rest-client').Client;
 const app = express()
 const client = new Client();
 
+
+
 app.set('port', (process.env.PORT || 5000))
 
 // Process application/x-www-form-urlencoded
@@ -39,13 +41,13 @@ app.get('/topnews/commands', function (req, res) {
 
 // for Facebook verification
 app.get('/topnews/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === 'Chau1102') {
+    if (req.query['hub.verify_token'] === '12345') {
         res.send(req.query['hub.challenge'])
     }
     res.send('Error, wrong token')
 })
 app.get('/airlinedemo/webhook/', function (req, res) {
-	if (req.query['hub.verify_token'] === 'Chau1102') {
+	if (req.query['hub.verify_token'] === '12345') {
 		res.send(req.query['hub.challenge'])
 	}
 	res.send('Error, wrong token')
@@ -53,7 +55,7 @@ app.get('/airlinedemo/webhook/', function (req, res) {
 
 // Facebook Token
 const tokens = {
-	"topnews":"EAATXQ5kIZAlYBAH8aUNVgtgAff3H2isqVzJYhjQ7r11XQWGhR6RTMQ7XqNKAl5M56v0VegCYY4FHWCeksHMZAEiv4IDLdFffZB0SAiaikTfUFWD8AZC6nPHEm5Tx7PeocZBfKBosXFqRjc9Dw4yM36giqo2yiSo17qIZCyNuZBnDwZDZD",
+	"topnews":"EAAaXcVlyIQ4BALwXZBXmm5VcNnlZBZAMPJhV1DZAJZBunep5SGnEBX9OYHu5ZApoJS9zPigEqfkCi8yr3W96FXf8PSOq5o0XMoCPVKIB2f3rgNm1tEzYTSrgCfWrxUPyR4xyO3dSeZCALI1ZBl2NZCwgBqW9jmSsByfQE161xj3TObQZDZD",
 	"airlinedemo":"EAAQRAoomuHkBAMhefApOqDEiFURVZBIFeSYkhAdO7ZCjHKK0qZBY640KjfUHTwLz1ULaSQ9RKYjKMyCLGEZBif8HiCT7l8cwnypTIRdJ8xyoZBekVZB4s3GiDKVZAogZBSlO1mu609mROjtVcIcY3tUVa4l2d8wmYU6So7L3psFH1AZDZD"
 }
 // News API
