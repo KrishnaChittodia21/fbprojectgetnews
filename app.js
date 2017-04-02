@@ -24,7 +24,7 @@ app.get('', function(req, res){
 })
 
 // Available Commands
-app.get('/topnews/commands', function (req, res) {
+app.get('/Topnews/commands', function (req, res) {
 	let commands = ["category","business","entertainment","general-au","general-gb","general-us","gaming","music","science-and-nature","sport","technology"]
 	let url = "https://newsapi.org/v1/sources?language=en";
 	client.get(url, function (data, response) {
@@ -40,13 +40,13 @@ app.get('/topnews/commands', function (req, res) {
 })
 
 // for Facebook verification
-app.get('/topnews/webhook/', function (req, res) {
+app.get('/Topnews/webhook/', function (req, res) {
     if (req.query['hub.verify_token'] === '12345') {
         res.send(req.query['hub.challenge'])
     }
     res.send('Error, wrong token')
 })
-app.get('/airlinedemo/webhook/', function (req, res) {
+app.get('/Airlinedemo/webhook/', function (req, res) {
 	if (req.query['hub.verify_token'] === '12345') {
 		res.send(req.query['hub.challenge'])
 	}
@@ -55,8 +55,8 @@ app.get('/airlinedemo/webhook/', function (req, res) {
 
 // Facebook Token
 const tokens = {
-	"topnews":"EAAaXcVlyIQ4BALwXZBXmm5VcNnlZBZAMPJhV1DZAJZBunep5SGnEBX9OYHu5ZApoJS9zPigEqfkCi8yr3W96FXf8PSOq5o0XMoCPVKIB2f3rgNm1tEzYTSrgCfWrxUPyR4xyO3dSeZCALI1ZBl2NZCwgBqW9jmSsByfQE161xj3TObQZDZD",
-	"airlinedemo":"EAAaXcVlyIQ4BALwXZBXmm5VcNnlZBZAMPJhV1DZAJZBunep5SGnEBX9OYHu5ZApoJS9zPigEqfkCi8yr3W96FXf8PSOq5o0XMoCPVKIB2f3rgNm1tEzYTSrgCfWrxUPyR4xyO3dSeZCALI1ZBl2NZCwgBqW9jmSsByfQE161xj3TObQZDZD"
+	"Topnews":"EAAaXcVlyIQ4BAH6MaDL9B1ZBts6Q3kcvMyEAIj2K4WfQYuAeQAait0NxtOEsWxoNndkMtSNISZBTR1ZCF6ozYSpk4KHMnQbhHIxm1d0FvykQtLpsUzvLM1XCLGs9cZCoksmStOpZBl9277zTDd8QEgUTM9ZANCemEpFbVt7dVG4wZDZD",
+	"Airlinedemo":"EAAaXcVlyIQ4BAFLQ7sJHv2SD2ACUnC6e4dHZAdJZC4aemhurNSZAYZBmoGycbknJBGdThhKS2NsdzW5FEbZATzLlsQsW7UPlKWIU9tuXyMWyp33LZAtlkKWIZBqvYWiRnsWBgZCuNaUK2gBo0d2l4e0n5cPme6OSYyo1zm2RebroAwZDZD"
 }
 // News API
 const newsAPI = "https://newsapi.org/v1/";
@@ -66,8 +66,8 @@ const apiKey = "a765db54daed43edabc8b7c82a1216df";
 let chosenCategory = ""
 
 // Webhook
-app.post('/topnews/webhook/', function (req, res) {
-	let token = tokens.topnews
+app.post('/Topnews/webhook/', function (req, res) {
+	let token = tokens.Topnews
     let messaging_events = req.body.entry[0].messaging
     for (let i = 0; i < messaging_events.length; i++) {
         let event = req.body.entry[0].messaging[i]
@@ -124,8 +124,8 @@ app.post('/topnews/webhook/', function (req, res) {
     }
     res.sendStatus(200)
 })
-app.post('/airlinedemo/webhook/', function (req, res) {
-	let token = tokens.airlinedemo
+app.post('/Airlinedemo/webhook/', function (req, res) {
+	let token = tokens.Airlinedemo
 	let messaging_events = req.body.entry[0].messaging
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = req.body.entry[0].messaging[i]
@@ -156,7 +156,7 @@ app.post('/airlinedemo/webhook/', function (req, res) {
 // First Time User
 getStarted()
 function getStarted() {
-	let token = tokens.topnews
+	let token = tokens.Topnews
 	request.post({
 		method: 'POST',
 		uri: 'https://graph.facebook.com/v2.8/me/thread_settings?access_token=' + token,
@@ -458,7 +458,7 @@ function getArticles(sender, source, token) {
 
 // Send Error Message
 function sendErrorMessage(sender, source, token) {
-	let url = "https://chatbot-hieudoan.herokuapp.com/topnews/commands";
+	let url = "https://afternoon-savannah-53641.herokuapp.com/Topnews/commands";
 	client.get(url, function (data, response) {
 		let commands = data
 		let numberOfCommands = commands.length
@@ -659,7 +659,7 @@ function sendCheckinReminderMessage(sender, token) {
 						"arrival_time": "2016-01-05T17:30"
 					}
 				}],
-				"checkin_url": "https://chatbot-hieudoan.herokuapp.com/airlinedemo/checkin.html"
+				"checkin_url": "https://afternoon-savannah-53641.herokuapp.com/Airlinedemo/checkin.html"
 			}
 		}
 	}
@@ -669,7 +669,7 @@ function sendCheckinReminderMessage(sender, token) {
 // Send Boarding Pass Message
 function sendBoardingPassMessage(sender, token) {
 	let intro_message = "You are checked in."
-	var root_url = "https://chatbot-hieudoan.herokuapp.com/airlinedemo/img/"
+	var root_url = "https://afternoon-savannah-53641.herokuapp.com/Airlinedemo/img/"
 	let logo_image_url = root_url + "logo.png"
 	let header_image_url = root_url + "header.png"
 	let above_bar_code_image_url = root_url + "bar_code.png"
