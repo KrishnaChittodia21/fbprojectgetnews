@@ -1,0 +1,45 @@
+$green:#5cc7b2;
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background-color: $green;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+}
+main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 200px;
+	height: 250px;
+	h1 {
+		text-align: center;
+		line-height: 50px;
+		color: #fff;
+	}
+
+	img {
+		margin: 0 25px;
+		width: 150px;
+		height: 150px;
+		margin-bottom: 0;
+	}
+
+	.fb-messengermessageus span {
+		display: block !important;
+		vertical-align: top !important;
+		margin: auto;
+	}
+
+	.fb_iframe_widget span {
+		display: block !important;
+	}
+}
