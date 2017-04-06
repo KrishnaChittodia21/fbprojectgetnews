@@ -485,28 +485,8 @@ function sendErrorMessage(sender, source, token) {
 	})
 }
 
+				
 
-// Send Error Message
-function sendTemplateMessage(sender, token) {
-	let templates = ["Itinerary","Checkin Reminder","Boarding Pass","Flight Update"]
-	let numberOfTemplates = templates.length
-	let i = 0
-	let quick_replies = []
-	for (i; i < numberOfTemplates; i++) {
-		let template = templates[i]
-		quick_replies.push({
-			"content_type":"text",
-			"title":template,
-			"payload":template
-		})
-	}
-	let text = "Pick a template:"
-	let message = {
-		"text": text,
-		"quick_replies": quick_replies
-	}
-	sendMessage(sender, message, token)
-}
 
 // Spin up the server
 app.listen(app.get('port'), function() {
