@@ -55,7 +55,7 @@ app.get('/Airlinedemo/webhook/', function (req, res) {
 
 // Facebook Token
 const tokens = {
-	"GetNews":"EAAaXcVlyIQ4BAH6MaDL9B1ZBts6Q3kcvMyEAIj2K4WfQYuAeQAait0NxtOEsWxoNndkMtSNISZBTR1ZCF6ozYSpk4KHMnQbhHIxm1d0FvykQtLpsUzvLM1XCLGs9cZCoksmStOpZBl9277zTDd8QEgUTM9ZANCemEpFbVt7dVG4wZDZD",
+	"GetNews":"EAAaXcVlyIQ4BAPzfYN1gqEZBf37Jaqiq29ftXEZCvR2bg7e0aPveFA55DudrKwAsixtVE3Iq5vvAZA4VaB46kWqyx9seo5tkQRpnyVW636tB2bK1d5X3ms1X2ab8LovmMFgnO3xKVnXGMZCIdw2BHA8fZAk3wChZBu8pcRCZAWSjwZDZD",
 
 }
 // News API
@@ -485,7 +485,7 @@ function sendErrorMessage(sender, source, token) {
 	})
 }
 
-				
+
 
 
 // Spin up the server
