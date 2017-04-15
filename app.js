@@ -46,12 +46,7 @@ app.get('/GetNews/webhook/', function (req, res) {
     }
     res.send('Error, wrong token')
 })
-app.get('/Airlinedemo/webhook/', function (req, res) {
-	if (req.query['hub.verify_token'] === '12345') {
-		res.send(req.query['hub.challenge'])
-	}
-	res.send('Error, wrong token')
-})
+
 
 // Facebook Token
 const tokens = {
@@ -166,7 +161,7 @@ function sendMessage(sender, message, token) {
 
 // Send Welcome Message
 function sendWelcomeMessage(sender, token) {
-	let text = "Welcome to Top News"
+	let text = "Welcome to  GetNews"
 	let message = {
 		"attachment": {
 			"type":"template",
