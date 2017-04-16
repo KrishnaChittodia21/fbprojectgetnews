@@ -226,7 +226,7 @@ function getArticlesFromRandomSource(sender, category, token) {
 				let status = data.status.toLowerCase();
 				if (status === "ok") {
 					if (typeof data.articles !== "undefined") {
-						sendMessage(sender, { text:"Top news from " + source }, token)
+						sendMessage(sender, { text:"Get News from " + source }, token)
 						let articles = data.articles;
 						let numberOfArticles = articles.length;
 						let i = 0;
@@ -351,7 +351,7 @@ function getArticles(sender, source, token) {
 			let status = data.status.toLowerCase()
 			if (status === "ok") {
 				if (typeof data.articles !== "undefined") {
-					sendMessage(sender, { text:"Top news from " + source }, token)
+					sendMessage(sender, { text:"Get News from " + source }, token)
 					let articles = data.articles;
 					let numberOfArticles = articles.length;
 					let i = 0;
