@@ -47,7 +47,6 @@ app.get('/GetNews/webhook/', function (req, res) {
     res.send('Error, wrong token')
 })
 
-
 // Facebook Token
 const tokens = {
 	"GetNews":"EAAaXcVlyIQ4BAPzfYN1gqEZBf37Jaqiq29ftXEZCvR2bg7e0aPveFA55DudrKwAsixtVE3Iq5vvAZA4VaB46kWqyx9seo5tkQRpnyVW636tB2bK1d5X3ms1X2ab8LovmMFgnO3xKVnXGMZCIdw2BHA8fZAk3wChZBu8pcRCZAWSjwZDZD",
@@ -161,7 +160,7 @@ function sendMessage(sender, message, token) {
 
 // Send Welcome Message
 function sendWelcomeMessage(sender, token) {
-	let text = "Welcome to  GetNews"
+	let text = "Welcome to GetNews "
 	let message = {
 		"attachment": {
 			"type":"template",
@@ -226,7 +225,7 @@ function getArticlesFromRandomSource(sender, category, token) {
 				let status = data.status.toLowerCase();
 				if (status === "ok") {
 					if (typeof data.articles !== "undefined") {
-						sendMessage(sender, { text:"Get News from " + source }, token)
+						sendMessage(sender, { text:"Top news from " + source }, token)
 						let articles = data.articles;
 						let numberOfArticles = articles.length;
 						let i = 0;
@@ -351,7 +350,7 @@ function getArticles(sender, source, token) {
 			let status = data.status.toLowerCase()
 			if (status === "ok") {
 				if (typeof data.articles !== "undefined") {
-					sendMessage(sender, { text:"Get News from " + source }, token)
+					sendMessage(sender, { text:"Top news from " + source }, token)
 					let articles = data.articles;
 					let numberOfArticles = articles.length;
 					let i = 0;
