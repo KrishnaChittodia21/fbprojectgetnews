@@ -53,8 +53,8 @@ const tokens = {
 
 }
 // News API
-const newsAPI = "https://newsapi.org/v1/";
-const apiKey = "a765db54daed43edabc8b7c82a1216df";
+const newsAPI = "";
+const apiKey = "";
 
 // Chosen Category
 let chosenCategory = ""
